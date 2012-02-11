@@ -26,6 +26,7 @@
 
 @property(assign) BOOL launchAtLogin;
 
+void sharedFileListDidChange(LSSharedFileListRef inList, void *context);
 - (BOOL) willLaunchAtLogin: (NSURL*) itemURL;
 - (void) setLaunchAtLogin: (BOOL) enabled forURL: (NSURL*) itemURL;
 
