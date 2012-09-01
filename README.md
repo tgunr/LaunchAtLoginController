@@ -42,7 +42,7 @@ to return the path to this other bundle.
 
 ## REQUIREMENTS:
 
-Works on 10.6/10.5
+Works on 10.8/10.7/10.6/10.5
 
 ## ORIGINAL CODE IDEAS:
 

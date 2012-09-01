@@ -22,10 +22,13 @@
 //  TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 //  SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-@interface LaunchAtLoginController : NSObject {}
+@interface LaunchAtLoginController : NSObject {
+    LSSharedFileListRef loginItems;
+}
 
 @property(assign) BOOL launchAtLogin;
 
+void sharedFileListDidChange(LSSharedFileListRef inList, void *context);
 - (BOOL) willLaunchAtLogin: (NSURL*) itemURL;
 - (void) setLaunchAtLogin: (BOOL) enabled forURL: (NSURL*) itemURL;
 
