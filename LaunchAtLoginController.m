@@ -77,12 +77,14 @@ void sharedFileListDidChange(LSSharedFileListRef inList, void *context)
         LSSharedFileListItemResolve(item, resolutionFlags, &currentItemURL, NULL);
         if (currentItemURL && CFEqual(currentItemURL, (__bridge CFURLRef)wantedURL)) {
             CFRelease(currentItemURL);
+            CFRelease((__bridge CFArrayRef)listSnapshot); // release LSSharedFileListCopySnapshot even in ARC mode because it's COPY
             return item;
         }
         if (currentItemURL)
             CFRelease(currentItemURL);
     }
-
+    CFRelease((__bridge CFArrayRef)listSnapshot); // release LSSharedFileListCopySnapshot even in ARC mode because it's COPY
+    
     return NULL;
 }
 
